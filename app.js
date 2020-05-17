@@ -23,6 +23,8 @@ function addTodo(event){
     newTodo.innerText = todoInput.value;
     newTodo.classList.add("todo-item");
     todoDiv.appendChild(newTodo);
+    //save to local storage
+    saveLocalTodos(todoInput.value);
     //checkmark button
     const completedButton = document.createElement("button");
     completedButton.innerHTML = '<i class="fas fa-check"></i>';
@@ -84,6 +86,14 @@ function filterTodo(e){
     });
 }
 
-function toberemoved(){
-    console.log("hej");
+function saveLocalTodos(todo){
+    //check if already saved to local storage
+    let todos;
+    if(localStorage.getItem('todos') === null){
+        todos = [];
+    }else{
+        todos = JSON.parse(localStorage.getItem('todos'));
+    }
+    todos.push(todo);
+    localStorage.setItem('todos', JSON.stringify(todos));
 }
