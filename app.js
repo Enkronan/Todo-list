@@ -83,3 +83,7 @@ function filterTodo(e){
         }
     });
 }
+
+function toberemoved(){
+    console.log("hej");
+}
