@@ -45,4 +45,9 @@ function deleteCheck(e){
     if(item.classList[0] === 'trash-btn'){
         item.parentElement.remove();
     }
+
+    //check mark
+    if(item.classList[0] === 'complete-btn'){
+        item.parentElement.classList.toggle("completed");
+    }
 }
